@@ -1,0 +1,50 @@
+{
+    "users":{
+        "$userId":{
+            "name":"string",
+            "email":"string",
+            "boards":{
+                "$boardId":true
+            }
+        }
+    },
+    "boards":{
+        "$boardId":{
+            "name":"string",
+            "createdBy":"$userId",
+            "public": false,
+            "lists":{
+                "$listId":true
+            }
+        }
+    },
+    "lists":{
+        "$boardId":{
+            "$listId":{
+                "notifications":false,
+                "provider":{
+                    "name":"string",
+                    "type":"string",
+                    "options":{
+                        "rssUrl":"string",
+                        "subreddits":"",
+                        "twitterNames":"",
+                        "repoNames":""
+                    },
+                    "updateInterval":30 //in minutes
+                },  //"$providerId",
+                "articles":[{
+                    "title":"string",
+                    "image":"url",
+                    "preamble":"string",
+                    "url":"string",
+                    "archive":true,
+                    "publishDate":"timestamp"
+                }]
+            }
+        }
+    },
+    "providers":{
+
+    }
+}
